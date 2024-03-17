@@ -1,0 +1,27 @@
+# permissions for end users to view namespaceclasses.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: namespaceclass-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: nsc-controller
+    app.kubernetes.io/part-of: nsc-controller
+    app.kubernetes.io/managed-by: kustomize
+  name: namespaceclass-viewer-role
+rules:
+- apiGroups:
+  - akuity.io.my.domain
+  resources:
+  - namespaceclasses
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - akuity.io.my.domain
+  resources:
+  - namespaceclasses/status
+  verbs:
+  - get

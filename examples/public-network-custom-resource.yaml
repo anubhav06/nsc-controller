@@ -1,0 +1,27 @@
+apiVersion: akuity.io.my.domain/v1
+kind: NamespaceClass
+metadata:
+  name: public-network
+spec:
+  resources:
+    - kind: NetworkPolicy
+      apiVersion: networking.k8s.io/v1
+      metadata:
+        name: allow-all
+      spec:
+        podSelector: {}
+        ingress:
+          - {}
+    - kind: LimitRange
+      apiVersion: v1
+      metadata:
+        name: resource-limits
+      spec:
+        limits:
+          - type: Pod
+            max:
+              cpu: "1"
+              memory: 1Gi
+            min:
+              cpu: "100m"
+              memory: 100Mi
