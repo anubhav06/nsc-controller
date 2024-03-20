@@ -38,10 +38,18 @@ type NamespaceClassSpec struct {
 type NamespaceClassStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
+	Resources []ResourceStatus `json:"resources"`
+}
+
+type ResourceStatus struct {
+	Kind       string `json:"kind"`
+	Name       string `json:"name"`
+	APIVersion string `json:"apiVersion"`
 }
 
 //+kubebuilder:object:root=true
 //+kubebuilder:subresource:status
+//+kubebuilder:resource:scope=Cluster
 
 // NamespaceClass is the Schema for the namespaceclasses API
 type NamespaceClass struct {

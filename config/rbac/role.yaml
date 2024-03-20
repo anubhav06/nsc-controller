@@ -7,7 +7,7 @@ rules:
 - apiGroups:
   - akuity.io.my.domain
   resources:
-  - namespaceclasses
+  - namespaces
   verbs:
   - create
   - delete
@@ -19,13 +19,13 @@ rules:
 - apiGroups:
   - akuity.io.my.domain
   resources:
-  - namespaceclasses/finalizers
+  - namespaces/finalizers
   verbs:
   - update
 - apiGroups:
   - akuity.io.my.domain
   resources:
-  - namespaceclasses/status
+  - namespaces/status
   verbs:
   - get
   - patch

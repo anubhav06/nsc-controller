@@ -1,0 +1,12 @@
+apiVersion: akuity.io.my.domain/v1
+kind: NamespaceClass
+metadata:
+  name: internal-network
+spec:
+  resources:
+    - kind: ConfigMap
+      apiVersion: v1
+      metadata:
+        name: example-config
+      data:
+        example-key: example-value
